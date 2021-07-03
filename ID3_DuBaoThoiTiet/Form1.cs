@@ -13,8 +13,10 @@ namespace ID3_DuBaoThoiTiet
     public partial class Form1 : Form
     {
         bool disabled = false;
+       
         public Form1()
         {
+            
             InitializeComponent();
         }
 
@@ -102,31 +104,45 @@ namespace ID3_DuBaoThoiTiet
         private void buttonGuess_Click(object sender, EventArgs e)
         {
             var valuesForQuery = new Dictionary<string, string>();
-            var nd = cmbND.SelectedItem.ToString();
+            var nd = cmbND.SelectedItem == null ? null : cmbND.SelectedItem.ToString();
             valuesForQuery.Add(MainHandler.Data.Columns[0].ToString(), nd);
-            var da = cmbDA.SelectedItem.ToString();
+            var da = cmbDA.SelectedItem == null ? null : cmbDA.SelectedItem.ToString();
             valuesForQuery.Add(MainHandler.Data.Columns[1].ToString(), da);
-            var may = cmbMay.SelectedItem.ToString();
+            var may = cmbMay.SelectedItem == null? null : cmbMay.SelectedItem.ToString();
             valuesForQuery.Add(MainHandler.Data.Columns[2].ToString(), may);
             var description = Tree.CalculateResult(Tree.Root, valuesForQuery, "");
+            if(string.IsNullOrEmpty(nd) || string.IsNullOrEmpty(da) || string.IsNullOrEmpty(may))
+            {
+                MessageBox.Show("Bạn hãy chọn đủ dữ liệu!");
+            }
             if (MainHandler.Result == "Nang".ToUpper())
             {
                 lbThoiTiet.Text = "Nắng";
+                lbThoiTiet.Visible = true;
+                richTextBox2.Text = "Dự báo: Thời tiết sẽ nắng";
                 pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\Sunny-icon.png");
             }
                 
             else if (MainHandler.Result == "Mua".ToUpper())
             {
                 lbThoiTiet.Text = "Mưa";
+                richTextBox2.Text = "Dự báo: Thời tiết sẽ mưa";
+                lbThoiTiet.Visible = true;
                 pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\rain-icon.jfif");
             }
             else if (MainHandler.Result == "Mat me".ToUpper())
             {
                 lbThoiTiet.Text = "Mát mẻ";
+                richTextBox2.Text = "Dự báo: Thời tiết sẽ mát mẻ";
+                lbThoiTiet.Visible = true;
                 pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\cool.png");
             }
             else
+            {
                 lbThoiTiet.Text = "Không có kết quả";
+                lbThoiTiet.Visible = true;
+            }
+                
 
             richTextBox1.Text = description;
         }

@@ -40,7 +40,9 @@ namespace ID3_DuBaoThoiTiet
             this.buttonGuess = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbThoiTiet = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -56,7 +58,6 @@ namespace ID3_DuBaoThoiTiet
             this.cmbND = new System.Windows.Forms.ComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -64,7 +65,9 @@ namespace ID3_DuBaoThoiTiet
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -74,7 +77,6 @@ namespace ID3_DuBaoThoiTiet
             this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -97,7 +99,7 @@ namespace ID3_DuBaoThoiTiet
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1127, 661);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Import dữ liệu";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -152,7 +154,7 @@ namespace ID3_DuBaoThoiTiet
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1127, 661);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Dự đoán";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel4
@@ -186,10 +188,19 @@ namespace ID3_DuBaoThoiTiet
             // 
             // panel6
             // 
-            this.panel6.Location = new System.Drawing.Point(0, 408);
+            this.panel6.Controls.Add(this.richTextBox2);
+            this.panel6.Location = new System.Drawing.Point(0, 370);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(338, 163);
+            this.panel6.Size = new System.Drawing.Size(338, 201);
             this.panel6.TabIndex = 1;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(11, 11);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(315, 165);
+            this.richTextBox2.TabIndex = 0;
+            this.richTextBox2.Text = "";
             // 
             // panel5
             // 
@@ -197,18 +208,27 @@ namespace ID3_DuBaoThoiTiet
             this.panel5.Controls.Add(this.lbThoiTiet);
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(338, 402);
+            this.panel5.Size = new System.Drawing.Size(338, 364);
             this.panel5.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(20, 110);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(306, 229);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // lbThoiTiet
             // 
             this.lbThoiTiet.AutoSize = true;
             this.lbThoiTiet.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbThoiTiet.Location = new System.Drawing.Point(130, 52);
+            this.lbThoiTiet.Location = new System.Drawing.Point(141, 64);
             this.lbThoiTiet.Name = "lbThoiTiet";
             this.lbThoiTiet.Size = new System.Drawing.Size(71, 30);
             this.lbThoiTiet.TabIndex = 0;
             this.lbThoiTiet.Text = "label2";
+            this.lbThoiTiet.Visible = false;
             // 
             // panel2
             // 
@@ -336,14 +356,6 @@ namespace ID3_DuBaoThoiTiet
             this.label1.TabIndex = 0;
             this.label1.Text = "Dự báo thời tiết";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(20, 110);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(306, 229);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -351,7 +363,7 @@ namespace ID3_DuBaoThoiTiet
             this.ClientSize = new System.Drawing.Size(1141, 705);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Dự báo thời tiết";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -359,8 +371,10 @@ namespace ID3_DuBaoThoiTiet
             this.tabPage2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -371,7 +385,6 @@ namespace ID3_DuBaoThoiTiet
             this.groupBox1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,6 +419,7 @@ namespace ID3_DuBaoThoiTiet
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }
 

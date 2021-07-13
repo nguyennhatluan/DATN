@@ -69,8 +69,9 @@ namespace ID3_DuBaoThoiTiet
                 var coolDivision = item.Amount == 0 || item.CoolAmount == 0 ? 1 : item.CoolAmount / (double)item.Amount;
                 var sunnyDivision = item.Amount == 0 || item.SunnyAmount == 0 ? 1 : item.SunnyAmount / (double)item.Amount;
                 var rainDivision = item.Amount == 0 || item.RainAmount == 0 ? 1 : item.RainAmount / (double)item.Amount;
+                var partlyCloudyDivision = item.Amount == 0 || item.PartlyCloudyAmount == 0 ? 1 : item.PartlyCloudyAmount / (double)item.Amount;
                 item.Entropy = -coolDivision * Math.Log(coolDivision, 2) - sunnyDivision * Math.Log(sunnyDivision, 2)
-                            - rainDivision * Math.Log(rainDivision, 2);
+                            - rainDivision * Math.Log(rainDivision, 2) - partlyCloudyDivision * Math.Log(partlyCloudyDivision, 2);
 
             }
 
@@ -94,6 +95,7 @@ namespace ID3_DuBaoThoiTiet
                 var coolAmount = 0;
                 var sunnyAmount = 0;
                 var rainAmount = 0;
+                var partlyCloudyAmount = 0;
 
                 for (var i = 0; i < data.Rows.Count; i++)
                 {
@@ -102,13 +104,17 @@ namespace ID3_DuBaoThoiTiet
                         amount++;
 
                         // Counts the positive cases and adds the sum later to the array for the calculation
-                        if (data.Rows[i][data.Columns.Count - 1].ToString().Equals("Mat me"))
+                        if (data.Rows[i][data.Columns.Count - 1].ToString().Equals("Cool"))
                         {
                             coolAmount++;
                         }
-                        else if (data.Rows[i][data.Columns.Count - 1].ToString().Equals("Nang"))
+                        else if (data.Rows[i][data.Columns.Count - 1].ToString().Equals("sunny"))
                         {
                             sunnyAmount++;
+                        }
+                        else if (data.Rows[i][data.Columns.Count - 1].ToString().Equals("partly cloudy"))
+                        {
+                            partlyCloudyAmount++;
                         }
                         else
                         {
@@ -121,7 +127,8 @@ namespace ID3_DuBaoThoiTiet
                     Amount = amount,
                     CoolAmount = coolAmount,
                     SunnyAmount = sunnyAmount,
-                    RainAmount = rainAmount
+                    RainAmount = rainAmount,
+                    PartlyCloudyAmount = partlyCloudyAmount
                 };
                 diffValuesOfColumn.Add(val);
 
@@ -256,21 +263,31 @@ namespace ID3_DuBaoThoiTiet
             {
                 foreach (var childNode in root.ChildNodes)
                 {
+                    
                     foreach (var entry in valuesForQuery)
                     {
                         if (childNode.Edge.ToUpper().Equals(entry.Value.ToUpper()) && root.Name.ToUpper().Equals(entry.Key.ToUpper()))
                         {
                             valuesForQuery.Remove(entry.Key);
+                            
                             return description + CalculateResult(childNode, valuesForQuery, $"{childNode.Edge.ToLower()} --> ");
                         }
+                        
+                        
                     }
+
+                    
                 }
+                
             }
 
             // if the user entered an invalid attribute
             if (!valueFound)
             {
-                description = "Attribute not found";
+                MainHandler.Result = "not found";
+                if (valuesForQuery.ContainsKey(root.Name))
+                    description += valuesForQuery[root.Name] + " --> ";
+                description += "Attribute not found";
             }
 
             return description;

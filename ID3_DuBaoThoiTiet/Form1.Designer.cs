@@ -58,6 +58,9 @@ namespace ID3_DuBaoThoiTiet
             this.cmbND = new System.Windows.Forms.ComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbMua = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -77,6 +80,8 @@ namespace ID3_DuBaoThoiTiet
             this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -232,6 +237,7 @@ namespace ID3_DuBaoThoiTiet
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel11);
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.panel9);
@@ -263,17 +269,17 @@ namespace ID3_DuBaoThoiTiet
             // panel10
             // 
             this.panel10.Controls.Add(this.groupBox3);
-            this.panel10.Location = new System.Drawing.Point(507, 143);
+            this.panel10.Location = new System.Drawing.Point(361, 143);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(250, 136);
+            this.panel10.Size = new System.Drawing.Size(162, 136);
             this.panel10.TabIndex = 3;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cmbMay);
-            this.groupBox3.Location = new System.Drawing.Point(11, 10);
+            this.groupBox3.Location = new System.Drawing.Point(11, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(229, 114);
+            this.groupBox3.Size = new System.Drawing.Size(141, 114);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Mây";
@@ -281,17 +287,17 @@ namespace ID3_DuBaoThoiTiet
             // cmbMay
             // 
             this.cmbMay.FormattingEnabled = true;
-            this.cmbMay.Location = new System.Drawing.Point(6, 25);
+            this.cmbMay.Location = new System.Drawing.Point(0, 24);
             this.cmbMay.Name = "cmbMay";
-            this.cmbMay.Size = new System.Drawing.Size(163, 27);
+            this.cmbMay.Size = new System.Drawing.Size(129, 27);
             this.cmbMay.TabIndex = 0;
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.groupBox2);
-            this.panel9.Location = new System.Drawing.Point(251, 143);
+            this.panel9.Location = new System.Drawing.Point(193, 144);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(250, 136);
+            this.panel9.Size = new System.Drawing.Size(162, 136);
             this.panel9.TabIndex = 2;
             // 
             // groupBox2
@@ -299,7 +305,7 @@ namespace ID3_DuBaoThoiTiet
             this.groupBox2.Controls.Add(this.cmbDA);
             this.groupBox2.Location = new System.Drawing.Point(11, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(228, 114);
+            this.groupBox2.Size = new System.Drawing.Size(140, 114);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Độ ẩm";
@@ -307,9 +313,9 @@ namespace ID3_DuBaoThoiTiet
             // cmbDA
             // 
             this.cmbDA.FormattingEnabled = true;
-            this.cmbDA.Location = new System.Drawing.Point(6, 25);
+            this.cmbDA.Location = new System.Drawing.Point(0, 25);
             this.cmbDA.Name = "cmbDA";
-            this.cmbDA.Size = new System.Drawing.Size(159, 27);
+            this.cmbDA.Size = new System.Drawing.Size(129, 27);
             this.cmbDA.TabIndex = 0;
             // 
             // panel8
@@ -317,7 +323,7 @@ namespace ID3_DuBaoThoiTiet
             this.panel8.Controls.Add(this.groupBox1);
             this.panel8.Location = new System.Drawing.Point(10, 143);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(235, 136);
+            this.panel8.Size = new System.Drawing.Size(177, 136);
             this.panel8.TabIndex = 1;
             // 
             // groupBox1
@@ -325,7 +331,7 @@ namespace ID3_DuBaoThoiTiet
             this.groupBox1.Controls.Add(this.cmbND);
             this.groupBox1.Location = new System.Drawing.Point(10, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(211, 114);
+            this.groupBox1.Size = new System.Drawing.Size(154, 114);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhiệt độ";
@@ -335,7 +341,7 @@ namespace ID3_DuBaoThoiTiet
             this.cmbND.FormattingEnabled = true;
             this.cmbND.Location = new System.Drawing.Point(6, 25);
             this.cmbND.Name = "cmbND";
-            this.cmbND.Size = new System.Drawing.Size(159, 27);
+            this.cmbND.Size = new System.Drawing.Size(132, 27);
             this.cmbND.TabIndex = 0;
             // 
             // panel7
@@ -355,6 +361,32 @@ namespace ID3_DuBaoThoiTiet
             this.label1.Size = new System.Drawing.Size(254, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dự báo thời tiết";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.groupBox5);
+            this.panel11.Location = new System.Drawing.Point(529, 144);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(228, 135);
+            this.panel11.TabIndex = 5;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.cmbMua);
+            this.groupBox5.Location = new System.Drawing.Point(11, 10);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(141, 114);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Mưa";
+            // 
+            // cmbMua
+            // 
+            this.cmbMua.FormattingEnabled = true;
+            this.cmbMua.Location = new System.Drawing.Point(0, 24);
+            this.cmbMua.Name = "cmbMua";
+            this.cmbMua.Size = new System.Drawing.Size(129, 27);
+            this.cmbMua.TabIndex = 0;
             // 
             // Form1
             // 
@@ -385,6 +417,8 @@ namespace ID3_DuBaoThoiTiet
             this.groupBox1.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -420,6 +454,9 @@ namespace ID3_DuBaoThoiTiet
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox cmbMua;
     }
 }
 

@@ -74,19 +74,28 @@ namespace ID3_DuBaoThoiTiet
                 {
                     MessageBox.Show("Đã tạo cây quyết định");
                     var dataND = MyAttribute.GetDifferentAttributeNamesOfColumn(MainHandler.Data, 0);
+                    var NDValues = dataND.Select(int.Parse).ToList().OrderBy(p=>p);
                     var dataDA = MyAttribute.GetDifferentAttributeNamesOfColumn(MainHandler.Data, 1);
+                    var DAValues = dataDA.Select(int.Parse).ToList().OrderBy(p=>p);
                     var dataMay = MyAttribute.GetDifferentAttributeNamesOfColumn(MainHandler.Data, 2);
-                    foreach (var item in dataND)
+                    var MayValues = dataMay.Select(int.Parse).ToList().OrderBy(p=>p);
+                    var dataMua = MyAttribute.GetDifferentAttributeNamesOfColumn(MainHandler.Data, 3);
+                    var MuaValues = dataMua.Select(float.Parse).ToList().OrderBy(p=>p);
+                    foreach (var item in NDValues)
                     {
                         cmbND.Items.Add(item);
                     }
-                    foreach (var item in dataDA)
+                    foreach (var item in DAValues)
                     {
                         cmbDA.Items.Add(item);
                     }
-                    foreach (var item in dataMay)
+                    foreach (var item in MayValues)
                     {
                         cmbMay.Items.Add(item);
+                    }
+                    foreach (var item in MuaValues)
+                    {
+                        cmbMua.Items.Add(item);
                     }
                 }
                 else
@@ -110,12 +119,14 @@ namespace ID3_DuBaoThoiTiet
             valuesForQuery.Add(MainHandler.Data.Columns[1].ToString(), da);
             var may = cmbMay.SelectedItem == null? null : cmbMay.SelectedItem.ToString();
             valuesForQuery.Add(MainHandler.Data.Columns[2].ToString(), may);
+            var mua = cmbMua.SelectedItem == null ? null : cmbMua.SelectedItem.ToString();
+            valuesForQuery.Add(MainHandler.Data.Columns[3].ToString(), mua);
             var description = Tree.CalculateResult(Tree.Root, valuesForQuery, "");
-            if(string.IsNullOrEmpty(nd) || string.IsNullOrEmpty(da) || string.IsNullOrEmpty(may))
+            if(string.IsNullOrEmpty(nd) || string.IsNullOrEmpty(da) || string.IsNullOrEmpty(may) || string.IsNullOrEmpty(mua))
             {
                 MessageBox.Show("Bạn hãy chọn đủ dữ liệu!");
             }
-            if (MainHandler.Result == "Nang".ToUpper())
+            if (MainHandler.Result == "sunny".ToUpper())
             {
                 lbThoiTiet.Text = "Nắng";
                 lbThoiTiet.Visible = true;
@@ -123,17 +134,24 @@ namespace ID3_DuBaoThoiTiet
                 pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\Sunny-icon.png");
             }
                 
-            else if (MainHandler.Result == "Mua".ToUpper())
+            else if (MainHandler.Result == "Rain".ToUpper())
             {
                 lbThoiTiet.Text = "Mưa";
                 richTextBox2.Text = "Dự báo: Thời tiết sẽ mưa";
                 lbThoiTiet.Visible = true;
                 pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\rain-icon.jfif");
             }
-            else if (MainHandler.Result == "Mat me".ToUpper())
+            else if (MainHandler.Result == "cool".ToUpper())
             {
                 lbThoiTiet.Text = "Mát mẻ";
                 richTextBox2.Text = "Dự báo: Thời tiết sẽ mát mẻ";
+                lbThoiTiet.Visible = true;
+                pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\cool.png");
+            }
+            else if (MainHandler.Result == "partly cloudy".ToUpper())
+            {
+                lbThoiTiet.Text = "Mây một phần";
+                richTextBox2.Text = "Dự báo: Thời tiết sẽ nắng và có mây một phần";
                 lbThoiTiet.Visible = true;
                 pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\cool.png");
             }

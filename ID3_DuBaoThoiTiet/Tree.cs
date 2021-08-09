@@ -10,8 +10,15 @@ namespace ID3_DuBaoThoiTiet
     {
         public static TreeNode Root { get; set; }
 
+        /// <summary>
+        /// Tìm node gốc của tập dữ liệu
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="edge"></param>
+        /// <returns></returns>
         private static TreeNode GetRootNodeNew(DataTable data, string edge)
         {
+            // Danh sách cột
             var attributes = new List<MyAttribute>();
             var highestInformationGainIndex = -1;
             var highestInformationGain = double.MinValue;
@@ -28,8 +35,10 @@ namespace ID3_DuBaoThoiTiet
 
             for (var i = 0; i < attributes.Count; i++)
             {
+                // Tính information gain cho từng cột
                 attributes[i].InformationGain = GetGainForAttribute(data, i, tableEntropy);
 
+                // tìm cột có giá trị information gain lớn nhất
                 if (attributes[i].InformationGain > highestInformationGain)
                 {
                     highestInformationGain = attributes[i].InformationGain;

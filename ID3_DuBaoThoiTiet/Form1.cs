@@ -13,7 +13,7 @@ namespace ID3_DuBaoThoiTiet
     public partial class Form1 : Form
     {
         bool disabled = false;
-       
+        
         public Form1()
         {
             
@@ -153,12 +153,14 @@ namespace ID3_DuBaoThoiTiet
                 lbThoiTiet.Text = "Mây một phần";
                 richTextBox2.Text = "Dự báo: Thời tiết sẽ nắng và có mây một phần";
                 lbThoiTiet.Visible = true;
-                pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\cool.png");
+                pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\partlycloudy01.png");
             }
             else
             {
                 lbThoiTiet.Text = "Không có kết quả";
+                richTextBox2.Text = "Không có kết quả dự báo về thời tiết";
                 lbThoiTiet.Visible = true;
+                pictureBox1.Image = Image.FromFile(@"D:\DoAN\ID3_DuBaoThoiTiet\DATN_DuBaoThoiTiet\ID3_DuBaoThoiTiet\Images\notfound.png");
             }
                 
 
@@ -166,6 +168,31 @@ namespace ID3_DuBaoThoiTiet
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbDA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbThoiTiet_Click(object sender, EventArgs e)
         {
 
         }

@@ -9,6 +9,7 @@ namespace ID3_DuBaoThoiTiet
     {
         public static DataTable Data { get; set; }
         public static string Result { get; set; } = "";
+        public static List<string> ListRule { get; set; } = new List<string>();
         public static TreeNode CreateTree()
         {
             return Tree.Learn(Data, "");

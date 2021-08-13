@@ -37,6 +37,7 @@ namespace ID3_DuBaoThoiTiet
             this.btnInitialTree = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewWeather = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.buttonGuess = new System.Windows.Forms.Button();
@@ -67,10 +68,14 @@ namespace ID3_DuBaoThoiTiet
             this.cmbND = new System.Windows.Forms.ComboBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeather)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,13 +93,15 @@ namespace ID3_DuBaoThoiTiet
             this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(-1, 1);
+            this.tabControl1.Location = new System.Drawing.Point(-6, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1135, 693);
@@ -155,6 +162,18 @@ namespace ID3_DuBaoThoiTiet
             this.dataGridViewWeather.Size = new System.Drawing.Size(1118, 594);
             this.dataGridViewWeather.TabIndex = 0;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.panel12);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1127, 661);
+            this.tabPage3.TabIndex = 1;
+            this.tabPage3.Text = "Tạo luật";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.panel4);
@@ -164,7 +183,7 @@ namespace ID3_DuBaoThoiTiet
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1127, 661);
-            this.tabPage2.TabIndex = 1;
+            this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "Dự đoán";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
@@ -444,6 +463,32 @@ namespace ID3_DuBaoThoiTiet
             this.label1.TabIndex = 0;
             this.label1.Text = "Dự báo thời tiết";
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.richTextBox3);
+            this.panel12.Location = new System.Drawing.Point(14, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1110, 571);
+            this.panel12.TabIndex = 0;
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Location = new System.Drawing.Point(10, 14);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(1073, 541);
+            this.richTextBox3.TabIndex = 0;
+            this.richTextBox3.Text = "";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(14, 595);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(137, 41);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Tạo luật";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -456,6 +501,7 @@ namespace ID3_DuBaoThoiTiet
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeather)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -479,6 +525,7 @@ namespace ID3_DuBaoThoiTiet
             this.groupBox1.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -521,6 +568,10 @@ namespace ID3_DuBaoThoiTiet
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.RichTextBox richTextBox3;
     }
 }
 

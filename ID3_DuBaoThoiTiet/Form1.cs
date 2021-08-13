@@ -66,21 +66,21 @@ namespace ID3_DuBaoThoiTiet
 
         private void btnInitialTree_Click(object sender, EventArgs e)
         {
-            if(MainHandler.Data != null)
+            if (MainHandler.Data != null)
             {
                 Tree.Root = MainHandler.CreateTree();
-                
-                if(Tree.Root != null)
+
+                if (Tree.Root != null)
                 {
                     MessageBox.Show("Đã tạo cây quyết định");
                     var dataND = MyAttribute.GetDifferentAttributeNamesOfColumn(MainHandler.Data, 0);
-                    var NDValues = dataND.Select(int.Parse).ToList().OrderBy(p=>p);
+                    var NDValues = dataND.Select(int.Parse).ToList().OrderBy(p => p);
                     var dataDA = MyAttribute.GetDifferentAttributeNamesOfColumn(MainHandler.Data, 1);
-                    var DAValues = dataDA.Select(int.Parse).ToList().OrderBy(p=>p);
+                    var DAValues = dataDA.Select(int.Parse).ToList().OrderBy(p => p);
                     var dataMay = MyAttribute.GetDifferentAttributeNamesOfColumn(MainHandler.Data, 2);
-                    var MayValues = dataMay.Select(int.Parse).ToList().OrderBy(p=>p);
+                    var MayValues = dataMay.Select(int.Parse).ToList().OrderBy(p => p);
                     var dataMua = MyAttribute.GetDifferentAttributeNamesOfColumn(MainHandler.Data, 3);
-                    var MuaValues = dataMua.Select(float.Parse).ToList().OrderBy(p=>p);
+                    var MuaValues = dataMua.Select(float.Parse).ToList().OrderBy(p => p);
                     foreach (var item in NDValues)
                     {
                         cmbND.Items.Add(item);
@@ -103,6 +103,9 @@ namespace ID3_DuBaoThoiTiet
                     MessageBox.Show("Không thể tạo cây");
                 }
             }
+            //Tree.Root = MainHandler.CreateTree();
+            //Tree.GetRules(Tree.Root);
+            //var listrule = MainHandler.ListRule;
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -195,6 +198,17 @@ namespace ID3_DuBaoThoiTiet
         private void lbThoiTiet_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Tree.GetRules(Tree.Root);
+            var listrule = MainHandler.ListRule;
+            foreach(var item in listrule)
+            {
+                richTextBox3.AppendText(item + Environment.NewLine);
+            }
+            
         }
     }
 }

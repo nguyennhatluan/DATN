@@ -22,16 +22,27 @@ namespace ID3_DuBaoThoiTiet
             Edge = edge;
         }
 
+        public TreeNode(bool isleaf, string name, string edge, TreeNode parentNode)
+        {
+            IsLeaf = isleaf;
+            Name = name;
+            Edge = edge;
+            ParentNode = parentNode;
+        }
+
         public string Name { get; }
 
         public string Edge { get; }
 
         public MyAttribute NodeAttribute { get; }
 
+        public TreeNode ParentNode { get; set; }
         public List<TreeNode> ChildNodes { get; }
 
         public int TableIndex { get; }
 
-        public bool IsLeaf { get; }
+        public bool IsLeaf { get; set; }
+
+        public string Result { get; set; }
     }
 }

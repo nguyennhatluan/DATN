@@ -187,8 +187,9 @@ namespace ID3_DuBaoThoiTiet
                 {
                     // cuối cùng table chỉ còn lại 1 column thời tiết.
                     var reducedTable = CreateSmallerTable(data, item, root.TableIndex);
-
-                    root.ChildNodes.Add(Learn(reducedTable, item));
+                    var childNode = Learn(reducedTable, item);
+                    childNode.ParentNode = root;
+                    root.ChildNodes.Add(childNode);
                 }
             }
 
@@ -218,8 +219,15 @@ namespace ID3_DuBaoThoiTiet
             // create leaf with value to display and edge to the leaf
             if (isLeaf)
             {
-                root.ChildNodes.Add(new TreeNode(true, allEndValues[0], attributeToCheck));
+                root.ChildNodes.Add(new TreeNode(true, allEndValues[0], attributeToCheck, root));
             }
+
+            //if (isLeaf)
+            //{
+            //    root.ChildNodes.Add(new TreeNode(true, allEndValues[0], attributeToCheck, root));
+            //    root.Result = attributeToCheck;
+            //    root.IsLeaf = true;
+            //}
 
             return isLeaf;
         }
@@ -300,6 +308,47 @@ namespace ID3_DuBaoThoiTiet
             }
 
             return description;
+        }
+
+        public static void GetRules(TreeNode root, string description = "")
+        {
+            //description += root.Name.ToUpper();
+            //if (root.IsLeaf)
+            //{
+            //    description += " then " + root.Name.ToUpper();
+            //    MainHandler.ListRule.Add(description);
+            //}
+            //else
+            //{
+
+            //    foreach (var child in root.ChildNodes)
+            //    {
+            //        description += $"= {child.Edge.ToLower()} --> ";
+            //        GetRules(child, description);                       
+            //    }
+            //}
+            //description += " "+ root.Name;
+            if (root.IsLeaf)
+            {
+                description = root.Name;
+                while(root.ParentNode != null)
+                {
+                    description = root.ParentNode.Name + " = " + root.Edge + "--> " + description;
+                    root = root.ParentNode;
+                    
+                }
+
+                MainHandler.ListRule.Add(description);
+                
+                return;
+                
+            }
+            foreach (var child in root.ChildNodes)
+            {
+               // description += (child.ParentNode.Name) + " = " + child.Edge + "-->";
+                GetRules(child, description);
+            }
+
         }
     }
 }
